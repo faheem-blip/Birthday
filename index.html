@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mubeena!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef:wght@400;600&family=Satisfy&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #f5f5f5;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .gold-particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #D4AF37;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            animation: particleFloat 8s linear infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-wrapper {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .birthday-title {
+            font-family: 'Lateef', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #D4AF37, #FFD700, #FFE55C, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .name {
+            font-family: 'Satisfy', cursive;
+            font-size: 4rem;
+            background: linear-gradient(45deg, #f5f5f5, #FFD700, #f5f5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin: 40px auto;
+            font-weight: 600;
+            max-width: 800px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .divider {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin: 80px 0;
+            padding: 60px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(212, 175, 55, 0.05) 50%, transparent 60%);
+            animation: shine 8s infinite linear;
+        }
+
+        .birthday-image {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #D4AF37;
+            font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '🎂';
+            font-size: 8rem;
+            opacity: 0.3;
+            animation: sparkle 2s infinite alternate;
+        }
+
+        .birthday-message {
+            flex: 1;
+            min-width: 350px;
+            padding: 30px;
+        }
+
+        .message-title {
+            font-family: 'Lateef', cursive;
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .message-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #D4AF37, transparent);
+        }
+
+        .message-text {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .arabic-dua {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-right: 5px solid #D4AF37;
+            text-align: center;
+        }
+
+        .arabic-text {
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
+
+        .translation {
+            color: #D4AF37;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .gold-ornament {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 100px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.9));
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            color: #D4AF37;
+            margin-bottom: 25px;
+        }
+
+        .feature-title {
+            font-family: 'Lateef', cursive;
+            font-size: 2.2rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .feature-text {
+            color: #b0b0b0;
+            line-height: 1.6;
+            font-size: 1.3rem;
+        }
+
+        .countdown {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 100px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        .countdown-title {
+            font-family: 'Lateef', cursive;
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 50px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(20, 20, 20, 0.9));
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #FFD700;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(212, 175, 55, 0.1) 100%);
+        }
+
+        .countdown-number {
+            font-family: 'Lateef', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #FFD700;
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+
+        .countdown-label {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-top: 10px;
+            z-index: 2;
+        }
+
+        .celebration-message {
+            display: none;
+            font-size: 4rem;
+            color: #FFD700;
+            text-align: center;
+            margin: 60px 0;
+            font-family: 'Lateef', cursive;
+            letter-spacing: 5px;
+        }
+
+        /* Celebration Effects */
+        .golden-burst {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .arabic-calligraphy {
+            position: fixed;
+            font-family: 'Noto Naskh Arabic', serif;
+            font-size: 3rem;
+            color: #FFD700;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0;
+        }
+
+        .moon-star {
+            position: fixed;
+            font-size: 4rem;
+            color: #FFD700;
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0;
+        }
+
+        .celebration-firework {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 998;
+            opacity: 0;
+        }
+
+        /* Animations */
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) skewX(-15deg);
+            }
+
+            100% {
+                transform: translateX(200%) skewX(-15deg);
+            }
+        }
+
+        @keyframes sparkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes goldenBurst {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatUpFade {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes arabicFloat {
+            0% {
+                transform: translateY(100px) scale(0.5) rotate(-10deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1.5) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fireworkBurst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes countdownPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes textGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+                    0 0 40px rgba(255, 215, 0, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.5),
+                    0 0 90px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        .celebrating {
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @media (max-width: 768px) {
+            .birthday-title {
+                font-size: 3.5rem;
+            }
+
+            .name {
+                font-size: 3rem;
+            }
+
+            .countdown-item {
+                width: 130px;
+                height: 130px;
+            }
+
+            .countdown-number {
+                font-size: 3rem;
+            }
+
+            .celebration-message {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .birthday-title {
+                font-size: 2.8rem;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .countdown-item {
+                width: 100px;
+                height: 100px;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .celebration-message {
+                font-size: 2rem;
+            }
+        }
+
+        /* Optimize animations for performance */
+        .gold-particle,
+        .golden-burst,
+        .arabic-calligraphy,
+        .moon-star,
+        .celebration-firework {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Reduce effects on mobile */
+        @media (max-width: 768px) {
+            .gold-particle {
+                display: none;
+                /* Hide particles on mobile */
+            }
+
+            .countdown-item::before {
+                animation: none;
+                /* Remove pulse animation on mobile */
+            }
+        }
+
+        /* ===== SMALLER SOCIAL MEDIA STYLES ===== */
+        .social-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .social-heading {
+            font-family: 'Lateef', cursive;
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .social-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.9));
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent);
+            transition: left 0.6s;
+        }
+
+        .social-card:hover::before {
+            left: 100%;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .instagram-card:hover {
+            border-color: #E4405F;
+            box-shadow: 0 15px 30px rgba(228, 64, 95, 0.2);
+        }
+
+        .snapchat-card:hover {
+            border-color: #FFFC00;
+            box-shadow: 0 15px 30px rgba(255, 252, 0, 0.2);
+        }
+
+        .social-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .instagram-card .social-icon-wrapper {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .snapchat-card .social-icon-wrapper {
+            background: linear-gradient(45deg, #FFFC00, #FFF);
+            color: #000;
+        }
+
+        .social-content {
+            flex: 1;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+            min-width: 0;
+            /* Prevents text overflow */
+        }
+
+        .social-title {
+            font-family: 'Lateef', cursive;
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .social-handle {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            font-family: 'Amiri', serif;
+            direction: ltr;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .social-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .social-card:hover .social-glow {
+            opacity: 0.2;
+        }
+
+        .instagram-card .social-glow {
+            background: radial-gradient(circle at center, rgba(228, 64, 95, 0.25), transparent 70%);
+        }
+
+        .snapchat-card .social-glow {
+            background: radial-gradient(circle at center, rgba(255, 252, 0, 0.25), transparent 70%);
+        }
+
+        /* Animation for icons */
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .social-card:hover .social-icon-wrapper {
+            animation: iconPulse 0.8s ease;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .social-container {
+                padding: 30px 15px;
+                margin: 30px 0;
+            }
+
+            .social-heading {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+
+            .social-cards {
+                gap: 20px;
+            }
+
+            .social-card {
+                min-width: 200px;
+                max-width: 100%;
+                padding: 20px 15px;
+            }
+
+            .social-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .social-title {
+                font-size: 1.3rem;
+            }
+
+            .social-handle {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-cards {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .social-card {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .social-heading {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Sender Section Animations */
+        .sender-name,
+        .arabic-name,
+        .english-name {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .sender-name:hover,
+        .arabic-name:hover,
+        .english-name:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            background: rgba(212, 175, 55, 0.15) !important;
+        }
+
+        .sender-card {
+            transition: all 0.4s ease;
+        }
+
+        .sender-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.5) !important;
+        }
+
+        /* Heartbeat animation */
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .sender-section .fa-heart,
+        .sender-card .fa-heart {
+            animation: heartbeat 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles and effects containers -->
+    <div id="goldParticles"></div>
+    <div id="celebrationEffects"></div>
+
+    <div class="container">
+        <header>
+            <div class="title-wrapper">
+                <h1 class="birthday-title">Happy Birthday</h1>
+            </div>
+
+            <h2 class="name">Mubeena</h2>
+            <p class="tagline">May Allah bless you with happiness, health, and success in both worlds</p>
+
+            <div class="divider"></div>
+        </header>
+
+        <div id="celebrationMessage" class="celebration-message">
+            ✨ الحمد لله! Happy Birthday Mubeena! ✨
+        </div>
+
+        <section class="hero-section">
+            <div class="gold-ornament" style="top: 20px; left: 20px;">﷽</div>
+            <div class="gold-ornament" style="top: 20px; right: 20px;">ﷺ</div>
+
+            <div class="birthday-image"
+                style="flex: 1; min-width: 350px; max-width: 500px; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); position: relative; border: 1px solid rgba(212, 175, 55, 0.3);">
+                <!-- Replace with your image URL -->
+                <div class="birthday-image"
+                    style="flex: 1; min-width: 350px; max-width: 500px; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); position: relative; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <!-- PASTE YOUR IMAGE URL HERE -->
+                    <img src="https://1drv.ms/i/c/bd880a484f7241ed/IQCctRhGQ7oITrSn18vghro6AXdQV_uRZP8SeXsUXjB2Wp4?e=IAKjh6" alt="Mubeena's Birthday Photo"
+                        style="width: 100%; height: 400px; object-fit: cover; transition: transform 0.5s ease;">
+                </div>
+
+                <!-- Fallback if image doesn't load -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a1a, #2d2d2d); display: flex; align-items: center; justify-content: center; color: #D4AF37; font-size: 1.5rem; display: none;">
+                    🎂 Mubeena's Birthday 🎉
+                </div>
+            </div>
+
+            <div class="birthday-message">
+                <h3 class="message-title">Special Birthday Duas</h3>
+
+                <p class="message-text">بسم الله الرحمن الرحيم<br><br>
+                    Dear Mubeena, on this blessed day of your birth, may Allah SWT shower you with His infinite mercy
+                    and
+                    blessings. May He grant you health, happiness, and success in both this world and the hereafter.</p>
+
+                <div class="arabic-dua">
+                    <div class="arabic-text">اللهم بارك لها في عمرها</div>
+                    <div class="translation">"O Allah, bless her in her life"</div>
+                </div>
+                <p
+                    style="text-align: center; margin: 25px 0; font-family: 'Noto Naskh Arabic', serif; font-size: 1.6rem; color: #FFD700;">
+                    رَبِّ أَدْخِلْنِي مُدْخَلَ صِدْقٍ وَأَخْرِجْنِي مُخْرَجَ صِدْقٍ
+                </p>
+                <p class="message-text">May Allah accept your good deeds, forgive your mistakes, and write for you a
+                    beautiful ending. May He grant you the highest levels of Jannatul Firdaus and reunite you with the
+                    righteous in the hereafter.</p>
+
+
+                <div class="arabic-dua">
+                    <div class="arabic-text">واغفر لها وارحمها وعافها واعف عنها</div>
+                    <div class="translation">"Forgive her, have mercy on her, grant her health, and pardon her"</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-star-and-crescent"></i>
+                </div>
+                <h4 class="feature-title">Blessings from Allah</h4>
+                <p class="feature-text">May Allah's blessings be with you every moment of your life, guiding you and
+                    protecting you.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <h4 class="feature-title">Accepted Duas</h4>
+                <p class="feature-text">May all your prayers be accepted and may you find peace and contentment in
+                    Allah's decree.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h4 class="feature-title">Pure Heart</h4>
+                <p class="feature-text">May Allah purify your heart and fill it with love for Him.</p>
+            </div>
+        </section>
+
+        <section class="countdown">
+            <h3 class="countdown-title">Birthday Countdown</h3>
+            <div class="countdown-container">
+                <div class="countdown-item" id="countdown-days">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item" id="countdown-hours">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item" id="countdown-minutes">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item" id="countdown-seconds">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <footer
+            style="text-align: center; padding: 60px 20px; margin-top: 100px; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+            <div class="arabic-dua" style="max-width: 600px; margin: 0 auto 40px;">
+                <div class="arabic-text">جعل الله كل أيامك أيام فرح وسعادة</div>
+                <div class="translation">"May Allah make all your days filled with joy and happiness"</div>
+            </div>
+
+            <div class="social-container">
+                <h3 style="font-family: 'Lateef', cursive; color: #FFD700; font-size: 2.5rem; margin-bottom: 40px;">
+                    Profiles
+                </h3>
+
+                <div class="social-cards">
+                    <a href="https://www.instagram.com/ms__0080?igsh=bG4zOXVod3gxbGM0"
+                        class="social-card instagram-card">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-content">
+                            <h4 class="social-title">Instagram</h4>
+                            <p class="social-handle">@ms__0080</p>
+                            <div class="social-glow"></div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.snapchat.com/add/mubeena243293?share_id=LBd3426hAL0&locale=en-GB"
+                        class="social-card snapchat-card">
+                        <div class="social-icon-wrapper">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </div>
+                        <div class="social-content">
+                            <h4 class="social-title">Snapchat</h4>
+                            <p class="social-handle">mubeena243293</p>
+                            <div class="social-glow"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Add this before the closing </footer> tag -->
+            <div class="simple-sender" style="text-align: center; margin: 40px 0;">
+                <div
+                    style="display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <div style="text-align: right;">
+                        <p style="color: #b0b0b0; font-size: 1rem; margin-bottom: 5px;">From your friend</p>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-feather-alt" style="color: #D4AF37;"></i>
+                            <p style="font-family: 'Satisfy', cursive; font-size: 2.2rem; color: #FFD700;">
+                                Faheem
+                            </p>
+                            <i class="fas fa-feather-alt" style="color: #D4AF37;"></i>
+                        </div>
+                    </div>
+
+                    <div
+                        style="width: 2px; height: 50px; background: linear-gradient(to bottom, transparent, #D4AF37, transparent);">
+                    </div>
+
+                    <div style="text-align: left;">
+                        <p style="color: #b0b0b0; font-size: 1rem; margin-bottom: 5px;">بالعربية</p>
+                        <p
+                            style="font-family: 'Noto Naskh Arabic', serif; font-size: 2.2rem; color: #FFD700; direction: rtl;">
+                            فَهِيْم
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 25px; position: relative; z-index: 2;">
+                    <p
+                        style="color: #b0b0b0; font-size: 1.1rem; font-style: italic; margin-bottom: 5px; font-family: 'Cormorant Garamond', serif;">
+                        <i class="fas fa-hand-holding-heart" style="color: #D4AF37; margin-right: 8px;"></i>"A special
+                        birthday wish created with care and love"
+                    </p>
+                    <div
+                        style="width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #D4AF37, transparent); margin: 10px auto;">
+                    </div>
+                </div>
+            </div>
+            <p style="color: #666; margin-top: 40px;">© 2025 Mubeena's Blessed Birthday</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create gold particles background
+        function createGoldParticles() {
+            const container = document.getElementById('goldParticles');
+            const particleCount = 50; // Reduced for performance
+
+            // Clear existing particles
+            container.innerHTML = '';
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'gold-particle';
+
+                const size = Math.random() * 2 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDelay = `${Math.random() * 8}s`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Countdown Timer
+        let countdownEnded = false;
+        let celebrationActive = false;
+        const birthdayDate = new Date('2025-12-26T00:00:00');
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = birthdayDate - now;
+
+            if (diff <= 0) {
+                if (!countdownEnded) {
+                    countdownEnded = true;
+                    startCelebrationEffects();
+                }
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            // Add glow effect when getting close (simplified)
+            if (days === 0 && hours < 24) {
+                const item = document.getElementById('countdown-days');
+                item.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.5)';
+                item.style.borderColor = '#FFD700';
+            }
+        }
+
+        // CELEBRATION EFFECTS FUNCTIONS (Optimized)
+        function startCelebrationEffects() {
+            if (celebrationActive) return;
+            celebrationActive = true;
+
+            // Show celebration message
+            const celebrationMsg = document.getElementById('celebrationMessage');
+            celebrationMsg.style.display = 'block';
+            celebrationMsg.classList.add('celebrating');
+
+            // Transform countdown items
+            const countdownItems = document.querySelectorAll('.countdown-item');
+            countdownItems.forEach(item => {
+                item.style.background = 'linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(20, 20, 20, 0.9))';
+                item.style.borderColor = '#FFD700';
+                item.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.7)';
+            });
+
+            // Start celebration effects
+            createGoldenBursts(5);
+            createArabicCalligraphy(8);
+            createSimpleFireworks(10);
+
+            // Start moderate continuous effects
+            startModerateContinuousEffects();
+        }
+
+        function createGoldenBursts(count = 5) {
+            const container = document.getElementById('celebrationEffects');
+
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const burst = document.createElement('div');
+                    burst.className = 'golden-burst';
+
+                    burst.style.left = `${Math.random() * 90 + 5}vw`;
+                    burst.style.top = `${Math.random() * 90 + 5}vh`;
+                    burst.style.animation = `goldenBurst 1.5s forwards`;
+
+                    container.appendChild(burst);
+
+                    setTimeout(() => {
+                        if (burst.parentNode) burst.remove();
+                    }, 1500);
+                }, i * 500);
+            }
+        }
+
+        function createArabicCalligraphy(count = 10) {
+            const container = document.getElementById('celebrationEffects');
+            const arabicPhrases = ['مبارك', 'الحمد لله', 'الله أكبر'];
+
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const calligraphy = document.createElement('div');
+                    calligraphy.className = 'arabic-calligraphy';
+                    calligraphy.textContent = arabicPhrases[Math.floor(Math.random() * arabicPhrases.length)];
+
+                    calligraphy.style.left = `${Math.random() * 80 + 10}vw`;
+                    calligraphy.style.top = '100vh';
+                    calligraphy.style.animation = `arabicFloat 3s forwards`;
+                    calligraphy.style.fontSize = '35px';
+
+                    container.appendChild(calligraphy);
+
+                    setTimeout(() => {
+                        if (calligraphy.parentNode) calligraphy.remove();
+                    }, 3000);
+                }, i * 400);
+            }
+        }
+
+        function createSimpleFireworks(count = 8) {
+            const container = document.getElementById('celebrationEffects');
+
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * 80 + 10;
+                    const y = 90;
+
+                    // Create a simple firework
+                    for (let j = 0; j < 8; j++) {
+                        setTimeout(() => {
+                            const particle = document.createElement('div');
+                            particle.className = 'celebration-firework';
+
+                            particle.style.left = `${x}vw`;
+                            particle.style.top = `${y}vh`;
+                            particle.style.background = j % 2 === 0 ? '#FFD700' : '#D4AF37';
+
+                            const angle = (j * 45) * Math.PI / 180;
+                            const tx = Math.cos(angle) * 50;
+                            const ty = Math.sin(angle) * 50;
+
+                            particle.style.setProperty('--tx', `${tx}px`);
+                            particle.style.setProperty('--ty', `${ty}px`);
+                            particle.style.animation = `fireworkBurst 1s forwards`;
+
+                            container.appendChild(particle);
+                            setTimeout(() => {
+                                if (particle.parentNode) particle.remove();
+                            }, 1000);
+                        }, j * 100);
+                    }
+                }, i * 800);
+            }
+        }
+
+        function startModerateContinuousEffects() {
+            if (!celebrationActive) return;
+
+            // Create effects at moderate intervals
+            const effects = [
+                () => createGoldenBursts(1),
+                () => createArabicCalligraphy(1),
+                () => createSimpleFireworks(1)
+            ];
+
+            let effectIndex = 0;
+
+            function createNextEffect() {
+                if (!celebrationActive) return;
+
+                effects[effectIndex % effects.length]();
+                effectIndex++;
+
+                // Random interval between 2-4 seconds
+                const nextDelay = 2000 + Math.random() * 2000;
+                setTimeout(createNextEffect, nextDelay);
+            }
+
+            // Start the cycle
+            setTimeout(createNextEffect, 2000);
+        }
+
+        // Clean up function
+        function cleanupEffects() {
+            celebrationActive = false;
+            const container = document.getElementById('celebrationEffects');
+            if (container) {
+                // Remove all child elements except the first few
+                while (container.children.length > 20) {
+                    container.removeChild(container.firstChild);
+                }
+            }
+        }
+
+        // Initialize everything
+        window.addEventListener('load', function () {
+            createGoldParticles();
+
+            // Check if birthday has already passed
+            const now = new Date();
+            if (now >= birthdayDate) {
+                countdownEnded = true;
+                // Delay celebration start to prevent immediate freezing
+                setTimeout(() => startCelebrationEffects(), 1000);
+            }
+
+            // Start countdown
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+
+            // Clean up on page unload
+            window.addEventListener('beforeunload', cleanupEffects);
+
+            // Performance optimization for mobile
+            if ('ontouchstart' in window) {
+                // Reduce animation complexity on mobile
+                document.querySelectorAll('.gold-particle').forEach(p => {
+                    p.style.animationDuration = '12s';
+                });
+            }
+        });
+
+        // Handle page visibility to prevent running effects in background
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                cleanupEffects();
+            }
+        });
+    </script>
+</body>
+
+</html>
